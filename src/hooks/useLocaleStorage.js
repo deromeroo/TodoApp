@@ -1,0 +1,49 @@
+import { useEffect, useState } from 'react';
+
+export const useLocaleStorage = (itemName, initValue) => {
+
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const [item, setItem] = useState(initValue);
+
+  useEffect( () => {
+    setTimeout(() => {
+      
+      try {
+        const localStorageItem = localStorage.getItem(itemName);
+        let parsedItem;
+          
+        if( !localStorageItem ) {
+          localStorage.setItem( itemName , JSON.stringify(initValue) );
+          parsedItem = [];
+        }else {
+          parsedItem = JSON.parse(localStorageItem);
+        };
+  
+        setItem(parsedItem);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+      };
+
+    }, 3500);
+  });
+  
+  const saveItem = (newItem) => {
+    try {
+      const stringifiedTodos = JSON.stringify(newItem);
+      localStorage.setItem(itemName , stringifiedTodos);
+      setItem(newItem);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  return {
+    item,
+    saveItem,
+    loading,
+    error
+  };
+}
