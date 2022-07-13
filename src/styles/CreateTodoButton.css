@@ -15,7 +15,7 @@
   align-items: center;
   height: 48px;
   width: 48px;
-  z-index: 10;
+  z-index: 1;
 
   transform: rotate(0);
   transition: .8s ease;

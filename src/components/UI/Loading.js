@@ -3,7 +3,7 @@ import '../../styles/ui/Loading.css';
 
 export const Loading = () => {
   return (
-    <>
+    <ul>
       <li className="loading">
         <span className={'loading-icon'} > </span>
         <p className={`loading-p`}> </p>
@@ -34,6 +34,6 @@ export const Loading = () => {
         <p className={`loading-time`}></p>
         <span className="loading-icon"> </span>
       </li>
-    </>
+    </ul>
   )
 }

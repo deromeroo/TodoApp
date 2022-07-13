@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '../../styles/ui/AlertTask.css';
-import { TodoContext } from '../../TodoContext/TodoContext';
 
-export const CreateFirstTodo = () => {
-
-  const {openModal, setOpenModal} = useContext(TodoContext);
+export const CreateFirstTodo = ({openModal, setOpenModal}) => {
 
   const onClickBtn = () => {
     setOpenModal(!openModal);

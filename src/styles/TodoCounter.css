@@ -22,3 +22,7 @@
     color: var(--main-color3);
     font-size: 20px;
 }
+
+.TodoCounter--loading {
+    opacity: 30%;
+}

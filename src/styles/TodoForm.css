@@ -1,12 +1,22 @@
  .Modal-Bg form {
     width: 80%;
-    max-width: 300px;
     background-color: var(--main-color2);
     padding: 30px;
     display: flex;
     align-content: center;
     flex-direction: column;
     border-radius: 7px;
+}
+
+@media (min-width: 420px) {
+    .Modal-Bg form {
+        width: 50%;
+    }
+}
+@media (min-width: 720px) {
+    .Modal-Bg form {
+        width: 30%;
+    }
 }
   
 .Modal-Bg .new-task {

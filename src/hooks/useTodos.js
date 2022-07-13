@@ -1,16 +1,16 @@
-import { createContext, useState } from 'react';
-import { useLocaleStorage } from '../hooks/useLocaleStorage';
+import { useState } from 'react';
+import { useLocaleStorage } from './useLocaleStorage';
 
-export const TodoContext = createContext();
 
-export const TodoProvider = (props) => {
+export const useTodos = () => {
 
   const {
       item: todos, 
       saveItem: saveTodos, 
       loading,
-      error
-    } = useLocaleStorage('Todos_V1', []);
+      error,
+      synchronizeItem: sincronizeTodos,
+    } = useLocaleStorage('Todos_V2', []);
   
     const [ searchValue, setSearchValue ] = useState('');
 
@@ -56,23 +56,20 @@ export const TodoProvider = (props) => {
       saveTodos(newTodos);
     };
 
-  return (
-      <TodoContext.Provider value={{
-          loading,
-          error,
-          totalTodos,
-          completedTodos,
-          searchValue,
-          setSearchValue,
-          searchedTodos,
-          addTodo,
-          completeTodo,
-          deleteTodo,
-          openModal,
-          setOpenModal,
-      }}>
-          {props.children}
-      </TodoContext.Provider>
-
-  );
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    addTodo,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    sincronizeTodos
+  };
+  
 }

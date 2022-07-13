@@ -1,10 +1,7 @@
 import '../styles/TodoSearch.css';
-import React, { useContext } from 'react';
-import { TodoContext } from '../TodoContext/TodoContext';
+import React from 'react';
 
-export const TodoSearch = () => {
-
-  const { searchValue, setSearchValue} = useContext(TodoContext);
+export const TodoSearch = ({searchValue, setSearchValue, loading}) => {
 
   const onSearchValueChange = (e) => {
     setSearchValue(e.target.value);
@@ -20,6 +17,7 @@ export const TodoSearch = () => {
           placeholder='Search task...'
           value={searchValue}
           onChange={onSearchValueChange}
+          disabled={loading}
         />
 
         <button type='submit' className='btn-search'>
@@ -27,6 +25,8 @@ export const TodoSearch = () => {
         </button>
 
       </form>
+
+
     </div>
   )
 }

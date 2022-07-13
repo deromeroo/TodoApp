@@ -29,9 +29,9 @@ ul, li {
 .date{
     font-family: var(--primary-font);
     font-size: 12px;
-    color: var(--main-color);
-    text-align: end;
-    margin: 14px 10px 0 0;
+    color: var(--main-color3);
+    text-align: center;
+    margin: 8px 0;
 }
 
 

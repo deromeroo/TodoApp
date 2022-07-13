@@ -19,7 +19,7 @@ form{
     border-radius: 7px;
     width: 100%;
     position: relative;
-    padding: 5px 5px;
+    padding: 10px;
     border: none;
     font-family: var(--secondary-font);
     font-size: 12px;
@@ -48,4 +48,8 @@ form{
 
 .btn-search:hover {
     cursor: pointer;
+}
+
+.btn-search:disabled , .query-search:disabled{
+    opacity: 30%;
 }

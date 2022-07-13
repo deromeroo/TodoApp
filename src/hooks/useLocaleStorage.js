@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 
 export const useLocaleStorage = (itemName, initValue) => {
 
+  
+  const [synchronizedItem, setSynchronizedItem] = useState(true);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-
   const [item, setItem] = useState(initValue);
 
   useEffect( () => {
@@ -23,12 +24,13 @@ export const useLocaleStorage = (itemName, initValue) => {
   
         setItem(parsedItem);
         setLoading(false);
+        setSynchronizedItem(true)
       } catch (error) {
         setError(error);
       };
 
-    }, 3500);
-  });
+    }, 3000);
+  }, [synchronizedItem]);
   
   const saveItem = (newItem) => {
     try {
@@ -40,10 +42,16 @@ export const useLocaleStorage = (itemName, initValue) => {
     }
   };
 
+  const synchronizeItem = () => {
+    setLoading(true);
+    setSynchronizedItem(false);
+  }
+
   return {
     item,
     saveItem,
     loading,
-    error
+    error,
+    synchronizeItem
   };
 }
